@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agregar Materias y Alumnos</title>
+    <link rel="stylesheet" href="Estilos.css">
+</head>
+<body>
+
+    <header>
+        <h1>Registro de Materias y Alumnos</h1>
+    </header>
+
+    <div class="container">
+        <div id="main-form">
+            <h2>Agregar Materia</h2>
+            <label for="materia">Nombre de la Materia:</label>
+            <input type="text" id="materia" placeholder="Ingrese el nombre de la materia">
+            
+            <label for="alumnos">Cantidad de Alumnos:</label>
+            <input type="number" id="alumnos" placeholder="Ingrese la cantidad de alumnos">
+            
+            <button onclick="agregarMateria()">Agregar</button>
+        </div>
+
+        <h2>Materias Registradas</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Materia</th>
+                    <th>Cantidad de Alumnos</th>
+                </tr>
+            </thead>
+            <tbody id="tablaMaterias">
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        let materias = [];
+        let alumnos = [];
+
+        function agregarMateria() {
+            const nombreMateria = document.getElementById('materia').value;
+            const cantidadAlumnos = document.getElementById('alumnos').value;
+
+            if (nombreMateria === '' || cantidadAlumnos === '') {
+                alert('Por favor, complete todos los campos.');
+                return;
+            }
+
+            materias.push(nombreMateria);
+            alumnos.push(cantidadAlumnos);
+
+            document.getElementById('materia').value = '';
+            document.getElementById('alumnos').value = '';
+
+            mostrarMaterias();
+        }
+
+        function mostrarMaterias() {
+            const tabla = document.getElementById('tablaMaterias');
+            tabla.innerHTML = '';
+
+            for (let i = 0; i < materias.length; i++) {
+                const fila = `
+                    <tr>
+                        <td>${materias[i]}</td>
+                        <td>${alumnos[i]}</td>
+                    </tr>
+                `;
+                tabla.innerHTML += fila;
+            }
+        }
+    </script>
+</body>
+</html>
