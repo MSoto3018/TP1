@@ -88,3 +88,7 @@ Esta aplicación permite gestionar un registro de materias junto con la cantidad
 - HTML, CSS, JavaScript para el frontend.
 - Node.js para el backend.
 - API REST para la gestión de datos.
+
+![Descripción de la imagen](images/agregar-alumnos.png)
+![Descripción de la imagen](images/listaMaterias.png)
+![Descripción de la imagen](images/listaMateriasIndividual.png)
